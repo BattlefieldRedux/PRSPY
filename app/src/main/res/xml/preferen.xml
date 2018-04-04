@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="Notifications">
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="pref_notifications_official_pr"
+            android:title="@string/pref_notifications_official_pr"
+            android:summary="Releases, blogs, highlights"/>
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="pref_notifications_official_prt"
+            android:title="@string/pref_notifications_official_prt"
+            android:summary="Project Reality Tournament news"/>
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="pref_notifications_pr_events"
+            android:title="@string/pref_notifications_pr_events"
+            android:summary="Public events"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="About">
+        <Preference
+            android:summary="Feedback and Suggestions"
+            android:title="G+ Community">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://plus.google.com/communities/113140612565959817341" />
+        </Preference>
+        <Preference
+            android:summary="Rate application on Google Store"
+            android:title="Rate App">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="market://details?id=pt.uturista.prspy" />
+        </Preference>
+        <Preference
+            android:summary="www.realitymod.com"
+            android:title="Project Reality&apos;s website">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://www.realitymod.com" />
+        </Preference>
+
+        <PreferenceScreen
+            android:summary="Legal documentation"
+            android:title="Licenses">
+            <Preference
+                android:summary="Apache License, Version 2.0"
+                android:title="Android">
+                <intent
+                    android:action="android.intent.action.VIEW"
+                    android:data="http://www.apache.org/licenses/LICENSE-2.0"  />
+            </Preference>
+            <Preference
+                android:summary="Apache License, Version 2.0"
+                android:title="Google Gson">
+                <intent
+                    android:action="android.intent.action.VIEW"
+                    android:data="http://www.apache.org/licenses/LICENSE-2.0" />
+            </Preference>
+            <Preference
+                android:summary="Apache License, Version 2.0"
+                android:title="Picasso">
+                <intent
+                    android:action="android.intent.action.VIEW"
+                    android:data="http://www.apache.org/licenses/LICENSE-2.0" />
+            </Preference>
+            <Preference
+                android:summary="MIT license"
+                android:title="Sephiroth's Imagezoom">
+                <intent
+                    android:action="android.intent.action.VIEW"
+                    android:data="http://opensource.org/licenses/mit-license.php" />
+            </Preference>
+        </PreferenceScreen>
+        <Preference
+            android:enabled="false"
+            android:summary="@string/version_build"
+            android:title="Build" />
+    </PreferenceCategory>
+</PreferenceScreen>

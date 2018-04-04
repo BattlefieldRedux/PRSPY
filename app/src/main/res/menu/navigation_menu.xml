@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_servers"
+            android:checkable="true"
+            android:checked="true"
+            android:title="@string/nav_servers"
+            android:icon="@drawable/ic_server_white_48dp"/>
+        <item
+            android:id="@+id/nav_friends"
+            android:checkable="true"
+            android:title="@string/nav_friends"
+            android:icon="@drawable/ic_group_white_48dp"/>
+        <item
+            android:id="@+id/nav_gallery"
+            android:checkable="true"
+            android:title="@string/nav_gallery"
+            android:icon="@drawable/ic_art_track_white_48dp"/>
+        <!--     <item
+                 android:id="@+id/nav_events"
+                 android:checkable="true"
+                 android:title="@string/nav_events"
+                 android:icon="@drawable/ic_event_white_48dp"/> -->
+    </group>
+    <group>
+        <item
+            android:id="@+id/nav_settings"
+            android:checkable="true"
+            android:title="@string/nav_settings"
+            android:icon="@drawable/ic_settings_white_48dp"/>
+    </group>
+
+</menu>

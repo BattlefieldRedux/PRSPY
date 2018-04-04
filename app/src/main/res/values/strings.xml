@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">PRSPY</string>
+
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
+    <string name="unknown">Unknown</string>
+    <string name="server_information_menu">Server details</string>
+    <string name="map_information_menu">Map details</string>
+    <string name="search">Search</string>
+
+    <!-- Friends -->
+    <string name="no_friends_title">You have no friends online</string>
+    <string name="no_friends_subtitle">Please add new friends by clicking on their name when viewing a server.</string>
+    <string name="title_activity_settings">Settings</string>
+
+    <!-- Strings related to Settings -->
+
+    <!-- Example General settings -->
+
+    <!-- Example settings for Data & Sync -->
+
+    <!-- Example settings for Notifications -->
+
+    <string name="pref_notifications_official_pr">Official PR</string>
+    <string name="pref_notifications_pr_events">Events</string>
+    <string name="pref_notifications_official_prt">Tournament</string>
+    <string name="no_internet_available">No internet available</string>
+    <string name="outdated_prspy">Updated more than %1$dm ago</string>
+</resources>

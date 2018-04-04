@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="faction_arf">African Resistance Forces</string>
+    <string name="faction_cf">Canadian Forces</string>
+    <string name="faction_ch">Chinese Forces</string>
+    <string name="faction_nl">Dutch Forces</string>
+    <string name="faction_fca">Syrian Rebels</string>
+    <string name="faction_mec">Middle East Coalition</string>
+    <string name="faction_usa">United States Army</string>
+    <string name="faction_us">United States</string>
+    <string name="faction_ru">Russia Forces</string>
+    <string name="faction_gb">British Forces</string>
+    <string name="faction_fr">French Forces</string>
+    <string name="faction_chinsurgent">Militia</string>
+    <string name="faction_hamas">Hamas</string>
+    <string name="faction_meinsurgent">Insurgents</string>
+    <string name="faction_taliban">Talibans</string>
+    <string name="faction_idf">Israeli Defence Forces</string>
+    <string name="faction_ger">German Forces</string>
+    <string name="faction_vn">North Vietnamese Army</string>
+
+    <!-- DO NOT OVERRIDE THIS -->
+
+    <!-- DO NOT OVERRIDE THIS -->
+    <!-- ORDER MATTERS @SEE: factions's array -->
+
+    <!-- DO NOT OVERRIDE THIS -->
+    <!-- ORDER MATTERS @SEE: factions's array -->
+</resources>

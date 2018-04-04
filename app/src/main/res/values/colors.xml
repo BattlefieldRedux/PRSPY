@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <!-- COLOR PALLET -->
+    <color name="blue">#3399cc</color>
+    <color name="gray_light">#333333</color>
+    <color name="gray_dark">#111111</color>
+
+
+
+    <!-- COLOR IDENTIFIERS (USE THESE) -->
+
+
+</resources>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="pt.uturista.prspy">
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/PRSPY">
+
+        <!-- Servers  -->
+        <activity
+            android:name=".view.servers.ServerBrowserActivity"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.servers.ServerDetailsActivity"
+            android:label="@string/app_name"
+            android:parentActivityName=".view.servers.ServerBrowserActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".view.servers.ServerBrowserActivity" />
+        </activity>
+
+        <!-- Friends -->
+        <activity
+            android:name=".view.friends.FriendsActivity"
+            android:label="@string/app_name" />
+
+        <!-- Gallery -->
+        <activity android:name=".view.gallery.GalleryActivity" />
+        <activity
+            android:name=".view.gallery.GalleryDetailsActivity"
+            android:parentActivityName=".view.gallery.GalleryActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".view.gallery.GalleryActivity" />
+        </activity>
+
+        <!-- Settings -->
+        <activity
+            android:name=".view.settings.SettingsActivity"
+            android:label="@string/title_activity_settings" />
+
+        <service
+            android:name=".service.FirebaseService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+        <service
+            android:name=".service.FCMInstanceIdService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+    </application>
+
+</manifest>

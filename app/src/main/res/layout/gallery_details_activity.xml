@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/drawer_layout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <fragment
+        android:id="@+id/gallery_details_fragment"
+        android:name="pt.uturista.prspy.view.gallery.fragment.GalleryDetailsFragment"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" />
+
+
+    <fragment
+        android:id="@+id/layout_selector_fragment"
+        android:name="pt.uturista.prspy.view.gallery.fragment.LayoutSelectorFragment"
+        android:layout_width="240dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="end"
+        android:background="#222222" />
+
+</android.support.v4.widget.DrawerLayout>

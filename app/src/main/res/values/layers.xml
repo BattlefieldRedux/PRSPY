@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Friendly representation of the Game Sizes -->
+    <string name="infantry">Inf</string>
+    <string name="alternative">Alt</string>
+    <string name="standard">Std</string>
+    <string name="large">Lrg</string>
+
+    <!-- ARRAY: Friendly representation of the Game Sizes -->
+
+    <!-- Friendly representation of the Game Sizes -->
+    <!-- Some situations require the full name of the game sizes-->
+    <!-- DO NOT OVERRIDE!! -->
+    <string name="infantry_extended">Infantry</string>
+    <string name="alternative_extended">Alternative</string>
+    <string name="standard_extended">Standard</string>
+    <string name="large_extended">Large</string>
+
+    <!-- ARRAY: Friendly representation of the Game Sizes -->
+    <!-- Some situations require the full name of the game sizes-->
+    <!-- DO NOT OVERRIDE!! -->
+
+    <!-- BF2 representation for the Game Sizes -->
+    <!-- DO NOT OVERRIDE!! -->
+
+    <!-- ARRAY: BF2 representation for the Game Sizes -->
+    <!-- DO NOT OVERRIDE!! -->
+</resources>

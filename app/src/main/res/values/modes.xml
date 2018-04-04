@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Friendly representation of the Game Modes -->
+    <string name="skirmish">Skir.</string>
+    <string name="cnc">Cnc</string>
+    <string name="insurgency">Ins</string>
+    <string name="coop">Co-Op</string>
+    <string name="conquest">AAS</string>
+    <string name="vehicles">Vehi. Warfare</string>
+    <string name="objective">Obj.</string>
+
+    <!-- ARRAY: Friendly representation of the Game Modes -->
+    <!-- DO NOT OVERRIDE!! -->
+
+    <!-- Friendly representation of the Game Modes -->
+    <!-- Some situations require the full name of the game modes-->
+    <!-- DO NOT OVERRIDE!! -->
+    <string name="skirmish_extended">Skirmish</string>
+    <string name="cnc_extended">Command &amp; Control</string>
+    <string name="insurgency_extended">Insurgency</string>
+    <string name="coop_extended">Cooperative</string>
+    <string name="conquest_extended">Assault &amp; Secure</string>
+    <string name="vehicles_extended">Vehicle Warfare</string>
+    <string name="objective_extended">Objective</string>
+
+    <!-- ARRAY: Friendly representation of the Game Modes -->
+    <!-- Some situations require the full name of the game modes-->
+    <!-- DO NOT OVERRIDE!! -->
+
+    <!-- BF2 representation for the Game Modes -->
+    <!-- DO NOT OVERRIDE!! -->
+
+    <!-- ARRAY: BF2 representation for the Game Modes -->
+    <!-- DO NOT OVERRIDE!! -->
+
+</resources>

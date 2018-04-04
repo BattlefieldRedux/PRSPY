@@ -1,0 +1,93 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="20dp"
+    android:paddingTop="20dp">
+
+
+    <TextView
+        android:id="@+id/serverFriendIndicator"
+        android:layout_width="10dp"
+        android:layout_height="match_parent"
+        android:background="@color/blue"
+        android:layout_alignParentLeft="true"
+        android:layout_alignTop="@+id/serverName"
+        android:layout_alignBottom="@+id/secondLine" />
+
+
+    <ImageView
+        android:id="@+id/serverFlag"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_alignTop="@+id/serverName"
+        android:layout_alignBottom="@+id/secondLine"
+        android:layout_toRightOf="@+id/serverFriendIndicator"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="5dp"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="16dp"
+        android:contentDescription="Country's flag" />
+
+
+    <!-- First Line -->
+    <TextView
+            android:id="@+id/serverName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:text="Server\'s Name"
+            android:textColor="@android:color/white"
+            android:textSize="16dp"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/serverFlag"
+            android:layout_alignParentRight="true"/>
+
+    <!-- Second Line -->
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/serverName"
+        android:layout_toRightOf="@+id/serverFlag"
+        android:id="@+id/secondLine"
+        android:layout_alignParentRight="true">
+
+        <ImageView
+            android:id="@+id/server_locked"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:src="@drawable/ic_lock_outline_white_18dp"
+            android:padding="2dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignBottom="@+id/serverPlayerCount" />
+
+
+        <TextView
+            android:id="@+id/serverPlayerCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/server_locked"
+            android:minEms="5"
+            android:text="70/100 (5)"
+            android:textColor="@android:color/white"
+            android:textSize="14dp" />
+
+        <TextView
+            android:id="@+id/serverMap"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_toEndOf="@+id/serverPlayerCount"
+            android:layout_toRightOf="@+id/serverPlayerCount"
+            android:singleLine="true"
+            android:text="Mutrah City"
+            android:textColor="@android:color/white"
+            android:textSize="14dp" />
+    </RelativeLayout>
+
+
+
+
+</RelativeLayout>
