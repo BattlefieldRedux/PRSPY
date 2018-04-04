@@ -1,5 +1,5 @@
-/**
- * Copyright 2015 uturista.pt All Rights Reserved.
+/*
+ * Copyright (c) 2018 uturista.pt
  *
  * Licensed under the Attribution-NonCommercial 4.0 International (the "License");
  * you may not use this file except in compliance with the License.

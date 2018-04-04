@@ -1,3 +1,19 @@
+/*
+ * Copyright (c) 2018 uturista.pt
+ *
+ * Licensed under the Attribution-NonCommercial 4.0 International (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * https://creativecommons.org/licenses/by-nc/4.0/legalcode
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package pt.uturista.prspy.model;
 
 import android.os.Parcel;
@@ -8,10 +24,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import pt.uturista.bf2.LayoutJson;
-
-/**
- * Created by Vasco on 07-03-2018.
- */
 
 public class Layout implements Parcelable {
     private final String mMode;

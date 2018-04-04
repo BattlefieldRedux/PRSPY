@@ -1,3 +1,19 @@
+/*
+ * Copyright (c) 2018 uturista.pt
+ *
+ * Licensed under the Attribution-NonCommercial 4.0 International (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * https://creativecommons.org/licenses/by-nc/4.0/legalcode
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package pt.uturista.prspy.view.servers.fragment;
 
 import android.content.Context;
@@ -25,7 +41,7 @@ import pt.uturista.prspy.model.DataTypes;
 import pt.uturista.prspy.model.PRLibrary;
 import pt.uturista.prspy.model.Player;
 import pt.uturista.prspy.model.Server;
-import pt.uturista.prspy.view.TabLayoutColor;
+import pt.uturista.prspy.view.widget.TabLayoutColor;
 import pt.uturista.prspy.view.servers.adapter.TeamPageAdapter;
 
 import static com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions.withCrossFade;
