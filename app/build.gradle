@@ -18,7 +18,27 @@ def getBuildName = { ->
 
 }
 
+// Create a variable called keystorePropertiesFile, and initialize it to your
+// keystore.properties file, in the rootProject folder.
+def keystorePropertiesFile = rootProject.file("keystore.properties")
+
+// Initialize a new Properties() object called keystoreProperties.
+def keystoreProperties = new Properties()
+
+// Load your keystore.properties file into the keystoreProperties object.
+keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+
+
 android {
+    signingConfigs {
+        release {
+            keyAlias keystoreProperties['keyAlias']
+            keyPassword keystoreProperties['keyPassword']
+            storeFile file(keystoreProperties['storeFile'])
+            storePassword keystoreProperties['storePassword']
+        }
+    }
+
     compileSdkVersion 27
     buildToolsVersion '27.0.3'
 
@@ -26,8 +46,8 @@ android {
         applicationId "pt.uturista.prspy"
         minSdkVersion 15
         targetSdkVersion 27
-        versionCode 23
-        versionName "2.1"
+        versionCode 24
+        versionName "2.1.1"
         resValue "string", "version_build", getBuildName()
         vectorDrawables.useSupportLibrary = true
     }
@@ -36,6 +56,7 @@ android {
             debuggable false
             minifyEnabled true
             shrinkResources true
+            signingConfig signingConfigs.release
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
