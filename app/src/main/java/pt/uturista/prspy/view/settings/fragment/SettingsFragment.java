@@ -88,18 +88,20 @@ public class SettingsFragment extends PreferenceFragment {
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
         Log.d(TAG, "onPreferenceTreeClick");
 
-        switch (preference.getKey()) {
-            case NOTIFICATIONS_NEWS:
-                handleNotifications(TOPIC_NEWS, ((CheckBoxPreference)preference).isChecked());
-                break;
-            case NOTIFICATIONS_PRT:
-                handleNotifications(TOPIC_PRT, ((CheckBoxPreference)preference).isChecked());
-                break;
-            case NOTIFICATIONS_EVENTS:
-                handleNotifications(TOPIC_EVENTS, ((CheckBoxPreference)preference).isChecked());
-                break;
-            default:
-                Log.d(TAG, "default");
+        if (preference != null && preference.getKey() != null) {
+            switch (preference.getKey()) {
+                case NOTIFICATIONS_NEWS:
+                    handleNotifications(TOPIC_NEWS, ((CheckBoxPreference) preference).isChecked());
+                    return true;
+                case NOTIFICATIONS_PRT:
+                    handleNotifications(TOPIC_PRT, ((CheckBoxPreference) preference).isChecked());
+                    return true;
+                case NOTIFICATIONS_EVENTS:
+                    handleNotifications(TOPIC_EVENTS, ((CheckBoxPreference) preference).isChecked());
+                    return true;
+                default:
+                    // Do nothing
+            }
         }
 
         return super.onPreferenceTreeClick(preferenceScreen, preference);

@@ -21,7 +21,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Gravity;
 
@@ -46,6 +45,8 @@ public class GalleryDetailsActivity extends BaseActivity implements CompactGalle
     private GalleryDetailsFragment mDetailsFragment;
     private LayoutSelectorFragment mSelectorFragment;
     private DrawerLayout mSelectorDrawer;
+    private int mLayer;
+    private String mMode;
 
 
     public GalleryDetailsActivity() {
@@ -62,6 +63,8 @@ public class GalleryDetailsActivity extends BaseActivity implements CompactGalle
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         mCompactGallery.onSaveInstanceState(outState);
+        outState.putInt(ARGS_LAYER, mLayer);
+        outState.putString(ARGS_MODE, mMode);
     }
 
     @Override
@@ -88,6 +91,15 @@ public class GalleryDetailsActivity extends BaseActivity implements CompactGalle
         mDetailsFragment = (GalleryDetailsFragment) getSupportFragmentManager().findFragmentById(R.id.gallery_details_fragment);
         mSelectorFragment = (LayoutSelectorFragment) getSupportFragmentManager().findFragmentById(R.id.layout_selector_fragment);
         mSelectorDrawer = findViewById(R.id.drawer_layout);
+
+        if (savedInstanceState == null) {
+            mLayer = getIntent().getIntExtra(ARGS_LAYER, DataTypes.UNKNOWN_LAYER);
+            mMode = getIntent().getStringExtra(ARGS_MODE);
+
+        }else{
+            mLayer = savedInstanceState.getInt(ARGS_LAYER, DataTypes.UNKNOWN_LAYER);
+            mMode = savedInstanceState.getString(ARGS_MODE);
+        }
 
         mCompactGallery.onCreate(savedInstanceState);
     }
@@ -136,9 +148,8 @@ public class GalleryDetailsActivity extends BaseActivity implements CompactGalle
     public void onCompactGalleryReady() {
         Log.d(TAG, "onCompactGalleryReady");
         String mapName = getIntent().getStringExtra(ARGS_MAP);
-        String mode = getIntent().getStringExtra(ARGS_MODE);
-        int layer = getIntent().getIntExtra(ARGS_LAYER, DataTypes.UNKNOWN_LAYER);
-        openLayout(mapName, mode, layer);
+
+        openLayout(mapName, mMode, mLayer);
     }
 
     @Override
@@ -150,7 +161,11 @@ public class GalleryDetailsActivity extends BaseActivity implements CompactGalle
 
     @Override
     public void onLayoutSelected(@DataTypes.GameModes String gameMode, @DataTypes.GameLayers int gameLayer) {
-        mCompactGallery.getLayout(getIntent().getStringExtra(ARGS_MAP), gameMode, gameLayer);
+
+        mMode = gameMode;
+        mLayer = gameLayer;
+
+        mCompactGallery.getLayout(getIntent().getStringExtra(ARGS_MAP), mMode, mLayer);
         mSelectorDrawer.closeDrawer(Gravity.RIGHT);
 
     }

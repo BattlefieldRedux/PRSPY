@@ -34,4 +34,7 @@ output.json
 #NDK
 obj/
 .externalNativeBuild
+
+# Sensitive files
 app/google-services.json
+keystore.properties
