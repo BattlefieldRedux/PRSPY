@@ -71,6 +71,9 @@ public abstract class BaseActivity extends AppCompatActivity {
     private Snackbar makeSnackBar() {
         View root = findViewById(R.id.root);
 
+        if(root == null)
+            return null;
+
         Snackbar snackbar = Snackbar.make(root, "No Internet connection...", Snackbar.LENGTH_INDEFINITE);
         View snackView = snackbar.getView();
         snackView.setBackgroundResource(R.color.gray_dark);
@@ -149,8 +152,9 @@ public abstract class BaseActivity extends AppCompatActivity {
             mSnackBar.dismiss();
         }
 
-        mSnackBar = makeSnackBar();
-        mSnackBar.setText(message).show();
+        if((mSnackBar = makeSnackBar()) != null){
+            mSnackBar.setText(message).show();
+        }
     }
 
     /**
