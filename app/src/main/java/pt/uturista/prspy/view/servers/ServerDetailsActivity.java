@@ -45,7 +45,7 @@ public class ServerDetailsActivity extends BaseActivity implements CompactServer
     private boolean mDataAvailable;
 
     public ServerDetailsActivity(){
-        super(true);
+        super(true, R.layout.servers_details_activity, R.id.server_details_fragment);
         mCompactServer = new CompactServer(this, this);
     }
 
@@ -53,11 +53,6 @@ public class ServerDetailsActivity extends BaseActivity implements CompactServer
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         mCompactServer.onSaveInstanceState(outState);
-    }
-
-    @Override
-    public int getContentView() {
-        return R.layout.servers_details_activity;
     }
 
     @Override

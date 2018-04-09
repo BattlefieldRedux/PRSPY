@@ -22,9 +22,9 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.http.HttpResponseCache;
 import android.os.Bundle;
+import android.support.annotation.IdRes;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
-import android.support.annotation.StringRes;
 import android.support.design.widget.Snackbar;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -58,10 +58,21 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected DrawerLayout mDrawer;
 
     private final boolean mRequiresInternet;
+    @LayoutRes
+    private final int mView;
+    @IdRes
+    private final int mRootView;
+
 
     protected BaseActivity(boolean requiresInternet) {
+        this(requiresInternet, R.layout.base_activity, R.id.root);
+    }
+
+    protected BaseActivity(boolean requiresInternet, @LayoutRes int view, @IdRes int rootView) {
 
         mRequiresInternet = requiresInternet;
+        mView = view;
+        mRootView = rootView;
 
         mReceiver = new BroadcastReceiver() {
             @Override
@@ -72,9 +83,9 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     private Snackbar makeSnackBar() {
-        View root = findViewById(R.id.root);
+        View root = findViewById(mRootView);
 
-        if(root == null)
+        if (root == null)
             return null;
 
         Snackbar snackbar = Snackbar.make(root, "No Internet connection...", Snackbar.LENGTH_INDEFINITE);
@@ -91,7 +102,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(getContentView());
+        setContentView(mView);
 
         // Set the toolbar/action bar
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -142,7 +153,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     final protected void hideSnackBar() {
         // Hide the snackbar is its visible and its not our no connection error message
-        if(mInternetAvailable && mSnackBar != null && mSnackBar.isShown()){
+        if (mInternetAvailable && mSnackBar != null && mSnackBar.isShown()) {
             mSnackBar.dismiss();
         }
     }
@@ -155,7 +166,7 @@ public abstract class BaseActivity extends AppCompatActivity {
             mSnackBar.dismiss();
         }
 
-        if((mSnackBar = makeSnackBar()) != null){
+        if ((mSnackBar = makeSnackBar()) != null) {
             mSnackBar.setText(message).show();
         }
     }
@@ -177,10 +188,5 @@ public abstract class BaseActivity extends AppCompatActivity {
             mInternetAvailable = false;
             showSnackBar(getString(R.string.no_internet_available), true);
         }
-    }
-
-    @LayoutRes
-    public int getContentView() {
-        return R.layout.base_activity;
     }
 }
