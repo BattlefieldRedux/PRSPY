@@ -55,6 +55,10 @@ public abstract class BaseNavigationActivity extends BaseActivity implements Nav
     private ActionBarDrawerToggle mDrawerToggle;
     private int mSelectedItem;
 
+    protected BaseNavigationActivity(boolean requiresInternet) {
+        super(requiresInternet);
+    }
+
 
     protected abstract @IdRes
     int getDrawerId();

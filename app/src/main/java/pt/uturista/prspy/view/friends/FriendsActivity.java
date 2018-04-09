@@ -34,13 +34,8 @@ public class FriendsActivity extends BaseNavigationActivity implements FriendsFr
     private boolean mDataIsAvailable = false;
 
     public FriendsActivity(){
+        super(true);
         mCompactServer = new CompactServer(this, this);
-    }
-
-
-    @Override
-    protected boolean requiresInternet() {
-        return true;
     }
 
     @Override

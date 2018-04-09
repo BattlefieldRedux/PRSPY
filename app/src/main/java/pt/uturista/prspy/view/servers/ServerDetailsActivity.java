@@ -44,7 +44,8 @@ public class ServerDetailsActivity extends BaseActivity implements CompactServer
     private String mServerID;
     private boolean mDataAvailable;
 
-    public ServerDetailsActivity() {
+    public ServerDetailsActivity(){
+        super(true);
         mCompactServer = new CompactServer(this, this);
     }
 
@@ -143,11 +144,6 @@ public class ServerDetailsActivity extends BaseActivity implements CompactServer
     public void onDataAvailable() {
         mDataAvailable = true;
         initActivity();
-    }
-
-    @Override
-    protected boolean requiresInternet() {
-        return true;
     }
 
     @Override

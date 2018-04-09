@@ -36,12 +36,8 @@ public class GalleryActivity extends BaseNavigationActivity implements CompactGa
 
 
     public GalleryActivity() {
+        super(true);
         mCompactGallery = new CompactGallery(this, this);
-    }
-
-    @Override
-    protected boolean requiresInternet() {
-        return true;
     }
 
     @Override

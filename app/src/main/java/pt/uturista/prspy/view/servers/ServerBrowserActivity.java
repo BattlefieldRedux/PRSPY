@@ -46,7 +46,7 @@ public class ServerBrowserActivity extends BaseNavigationActivity implements Com
     private CountDownTimer mTimer;
 
     public ServerBrowserActivity() {
-        super();
+        super(true);
         mCompactServer = new CompactServer(this, this);
     }
 
@@ -151,11 +151,6 @@ public class ServerBrowserActivity extends BaseNavigationActivity implements Com
         super.onRestoreInstanceState(savedInstanceState);
         Log.d(TAG, "onCreate");
         mCompactServer.onCreate(savedInstanceState);
-    }
-
-    @Override
-    protected boolean requiresInternet() {
-        return true;
     }
 
     @Override

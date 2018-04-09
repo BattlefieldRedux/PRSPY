@@ -57,9 +57,12 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     protected DrawerLayout mDrawer;
 
-    protected abstract boolean requiresInternet();
+    private final boolean mRequiresInternet;
 
-    protected BaseActivity() {
+    protected BaseActivity(boolean requiresInternet) {
+
+        mRequiresInternet = requiresInternet;
+
         mReceiver = new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
@@ -170,7 +173,7 @@ public abstract class BaseActivity extends AppCompatActivity {
             }
             mInternetAvailable = true;
 
-        } else if (!Net.isInternetAvailable(this) && requiresInternet()) {
+        } else if (!Net.isInternetAvailable(this) && mRequiresInternet) {
             mInternetAvailable = false;
             showSnackBar(getString(R.string.no_internet_available), true);
         }

@@ -49,7 +49,8 @@ public class GalleryDetailsActivity extends BaseActivity implements CompactGalle
     private String mMode;
 
 
-    public GalleryDetailsActivity() {
+    public GalleryDetailsActivity()
+    {super(true);
         mCompactGallery = new CompactGallery(this, this);
     }
 
@@ -125,11 +126,6 @@ public class GalleryDetailsActivity extends BaseActivity implements CompactGalle
         mSelectorFragment.setAvailableLayouts(level.getLayouts());
         mSelectorFragment.setCurrentLayout(mode, layer);
         mCompactGallery.getLayout(mapName, mode, layer);
-    }
-
-    @Override
-    protected boolean requiresInternet() {
-        return false;
     }
 
     public static Intent newIntent(Context context, String mapName) {
