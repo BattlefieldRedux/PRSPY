@@ -67,82 +67,123 @@ public class Server implements Parcelable {
     public Server(pt.uturista.bf2.Server json) throws UnknownHostException {
         Address = new InetSocketAddress(Inet4Address.getByName(json.IPAddress), json.GamePort);
 
+        // Country
+        Country c = World.WORLD_MAP.get(json.Country.toLowerCase());
+        if(c == null)
+            c = World.UNITED_NATIONS;
+        Country = c;
+
+        // ServerName, MapName and GameMode
         ServerName = Html.fromHtml(json.ServerName.replaceAll("\\[PR\\sv[\\d.]*\\]\\s", "")).toString();
         MapName = Html.fromHtml(json.MapName).toString();
         GameMode = DataTypes.getGameMode(json.GameMode);
+
+        // GameLayer, NumPlayers, MaxPlayers and ReservedSlots
         GameLayer = DataTypes.getGameLayer(json.MapSize);
         NumPlayers = json.NumPlayers;
         MaxPlayers = json.MaxPlayers;
         ReservedSlots = json.ReservedSlots;
+
+        // Password, OS, BattleRecorder and ServerText
         Password = json.Password;
         OS = json.OS;
         BattleRecorder = json.BattleRecorder;
         ServerText = json.ServerText;
+
+        // ServerLogo, Team1Name and Team2Name
         ServerLogo = Uri.parse(json.ServerLogo);
         Team1Name = json.Team1Name;
         Team2Name = json.Team2Name;
-        Description = json.ServerText.replace("|", System.getProperty("line.separator", "\n"));
-        Players = new Player[json.Players.length];
 
+
+        // Players and Description
+        Players = new Player[json.Players.length];
         for (int i = 0; i < json.Players.length; i++) {
             Players[i] = new Player(json.Players[i], getID());
         }
+        Description = json.ServerText.replace("|", System.getProperty("line.separator", "\n"));
 
-        Country c = World.WORLD_MAP.get(json.Country.toLowerCase());
-
-        if(c == null)
-            c = World.UNITED_NATIONS;
-
-        Country = c;
 
     }
 
     protected Server(Parcel in) {
-        Address = (InetSocketAddress) in.readSerializable();
-        Country = in.readParcelable(pt.uturista.flags.Country.class.getClassLoader());
+        // Custom serialization of Address (Host and Port)
+        String hostname = in.readString();
+        int port = in.readInt();
+        Address =  new InetSocketAddress(hostname, port);
+
+        // Country
+        Country c = World.WORLD_MAP.get(in.readString());
+        if(c == null)
+            c = World.UNITED_NATIONS;
+        Country = c;
+
+        // ServerName, MapName and GameMode
         ServerName = in.readString();
         MapName = in.readString();
         GameMode = DataTypes.getGameMode(in.readString());
+
+        // GameLayer, NumPlayers, MaxPlayers and ReservedSlots
         GameLayer = DataTypes.getGameLayer(in.readInt());
         NumPlayers = in.readInt();
         MaxPlayers = in.readInt();
         ReservedSlots = in.readInt();
+
+        // Password, OS, BattleRecorder and ServerText
         Password = in.readByte() != 0;
         OS = in.readString();
         BattleRecorder = in.readByte() != 0;
         ServerText = in.readString();
-        ServerLogo = in.readParcelable(Uri.class.getClassLoader());
+
+        // ServerLogo, Team1Name and Team2Name
+        ServerLogo = Uri.parse(in.readString());
         Team1Name = in.readString();
         Team2Name = in.readString();
+
+        // Players and Description
         Players = in.createTypedArray(Player.CREATOR);
         Description = in.readString();
     }
 
     @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeSerializable(Address);
-        dest.writeParcelable(Country, Country.describeContents());
+        // Custom serialization of Address (Host and Port)
+        dest.writeString(Address.getAddress().getHostAddress());
+        dest.writeInt(Address.getPort());
+
+        // Country
+        dest.writeString(Country.CODE_2);
+
+        // ServerName, MapName and GameMode
         dest.writeString(ServerName);
         dest.writeString(MapName);
         dest.writeString(GameMode);
+
+        // GameLayer, NumPlayers, MaxPlayers and ReservedSlots
         dest.writeInt(GameLayer);
         dest.writeInt(NumPlayers);
         dest.writeInt(MaxPlayers);
         dest.writeInt(ReservedSlots);
+
+        // Password, OS, BattleRecorder and ServerText
         dest.writeByte((byte) (Password ? 1 : 0));
         dest.writeString(OS);
         dest.writeByte((byte) (BattleRecorder ? 1 : 0));
         dest.writeString(ServerText);
-        dest.writeParcelable(ServerLogo, Uri.PARCELABLE_WRITE_RETURN_VALUE);
+
+        // ServerLogo, Team1Name and Team2Name
+        dest.writeString(ServerLogo.toString());
         dest.writeString(Team1Name);
         dest.writeString(Team2Name);
+
+        // Players and Description
         dest.writeArray(Players);
         dest.writeString(Description);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
     }
 
 
@@ -270,4 +311,6 @@ public class Server implements Parcelable {
     public String getID() {
         return Address.toString();
     }
+
+
 }
