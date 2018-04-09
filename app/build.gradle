@@ -46,8 +46,8 @@ android {
         applicationId "pt.uturista.prspy"
         minSdkVersion 15
         targetSdkVersion 27
-        versionCode 24
-        versionName "2.1.1"
+        versionCode 25
+        versionName "2.1.2"
         resValue "string", "version_build", getBuildName()
         vectorDrawables.useSupportLibrary = true
     }

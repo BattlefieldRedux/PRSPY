@@ -50,14 +50,10 @@ public class GalleryDetailsActivity extends BaseActivity implements CompactGalle
 
 
     public GalleryDetailsActivity() {
+        super(true, R.layout.gallery_details_activity, R.id.drawer_layout);
         mCompactGallery = new CompactGallery(this, this);
     }
 
-
-    @Override
-    public int getContentView() {
-        return R.layout.gallery_details_activity;
-    }
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
@@ -96,7 +92,7 @@ public class GalleryDetailsActivity extends BaseActivity implements CompactGalle
             mLayer = getIntent().getIntExtra(ARGS_LAYER, DataTypes.UNKNOWN_LAYER);
             mMode = getIntent().getStringExtra(ARGS_MODE);
 
-        }else{
+        } else {
             mLayer = savedInstanceState.getInt(ARGS_LAYER, DataTypes.UNKNOWN_LAYER);
             mMode = savedInstanceState.getString(ARGS_MODE);
         }
@@ -125,11 +121,6 @@ public class GalleryDetailsActivity extends BaseActivity implements CompactGalle
         mSelectorFragment.setAvailableLayouts(level.getLayouts());
         mSelectorFragment.setCurrentLayout(mode, layer);
         mCompactGallery.getLayout(mapName, mode, layer);
-    }
-
-    @Override
-    protected boolean requiresInternet() {
-        return false;
     }
 
     public static Intent newIntent(Context context, String mapName) {

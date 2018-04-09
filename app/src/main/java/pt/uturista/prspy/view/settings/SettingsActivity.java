@@ -28,9 +28,8 @@ public class SettingsActivity extends BaseNavigationActivity {
 
     private static final String TAG = "SettingsActivity";
 
-    @Override
-    protected boolean requiresInternet() {
-        return false;
+    public SettingsActivity() {
+        super(false);
     }
 
     @Override

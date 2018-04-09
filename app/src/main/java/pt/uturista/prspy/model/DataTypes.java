@@ -17,6 +17,8 @@
 package pt.uturista.prspy.model;
 
 import android.support.annotation.IntDef;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.annotation.StringDef;
 
 import java.lang.annotation.Retention;
@@ -41,7 +43,10 @@ public class DataTypes {
 
 
     @GameModes
-    public static String getGameMode(String gameMode) {
+    public static String getGameMode(@Nullable String gameMode) {
+        if(gameMode == null)
+            return UNKNOWN_MODE;
+
         switch (gameMode) {
             case CONQUEST:
                 return CONQUEST;
@@ -61,7 +66,10 @@ public class DataTypes {
     }
 
     @GameLayers
-    public static int getGameLayer(String gameMode) {
+    public static int getGameLayer(@Nullable String gameMode) {
+        if(gameMode == null)
+            return UNKNOWN_LAYER;
+
         switch (gameMode) {
             case "64":
                 return STANDARD;
