@@ -34,23 +34,10 @@ public class ServerData implements Parcelable {
     // We actually want the date format to end with X instead of Z but the 'X' pattern
     // is only available for the API 24+ and we're targeting 15+
     // With 'Z' pattern we'll need to modified the data before parsing it
-    private static final SimpleDateFormat DATA_FORMAT = new SimpleDateFormat( "yyyy-MM-dd'T'HH:mm:ss.SSSSSSSSZ", Locale.US);
+    private static final SimpleDateFormat DATA_FORMAT = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSSSSSSZ", Locale.US);
 
     private final Date Time;
     private final Server[] Data;
-
-
-    /* *********************************
-     *         Getters
-     * ********************************* */
-    public Date getTime() {
-        return Time;
-    }
-
-    public Server[] getServers() {
-        return Data;
-    }
-
 
 
     /* *********************************
@@ -90,7 +77,17 @@ public class ServerData implements Parcelable {
     }
 
 
+    /* *********************************
+     *         Getters
+     * ********************************* */
 
+    public Date getTime() {
+        return Time;
+    }
+
+    public Server[] getServers() {
+        return Data;
+    }
 
 
     /* *********************************
@@ -100,6 +97,17 @@ public class ServerData implements Parcelable {
     private ServerData(Parcel in) {
         Data = in.createTypedArray(Server.CREATOR);
         Time = new Date(in.readLong());
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeTypedArray(Data, flags);
+        dest.writeLong(Time.getTime());
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
     }
 
     public static final Creator<ServerData> CREATOR = new Creator<ServerData>() {
@@ -113,16 +121,4 @@ public class ServerData implements Parcelable {
             return new ServerData[size];
         }
     };
-
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeParcelableArray(Data, flags);
-        dest.writeLong(Time.getTime());
-    }
 }
