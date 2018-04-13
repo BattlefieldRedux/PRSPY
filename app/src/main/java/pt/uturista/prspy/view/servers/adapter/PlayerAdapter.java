@@ -31,6 +31,8 @@ import pt.uturista.prspy.model.Player;
 public class PlayerAdapter extends RecyclerView.Adapter<PlayerAdapter.PlayerHolder> {
     private final static String TAG = "PlayersAdapter";
     private static final int LAYOUT_ROW = R.layout.server_player_row;
+    private static final int HEADER = 2;
+    private static final int ROW = 3;
 
 
     private Player[] mCollection;
@@ -47,7 +49,16 @@ public class PlayerAdapter extends RecyclerView.Adapter<PlayerAdapter.PlayerHold
     public PlayerHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(LAYOUT_ROW, parent, false);
 
-        return new PlayerHolder(v);
+        return new PlayerHolder(v, viewType == ROW);
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        if(position == 0)
+            return HEADER;
+
+        return ROW;
+
     }
 
     @Override
@@ -108,11 +119,12 @@ public class PlayerAdapter extends RecyclerView.Adapter<PlayerAdapter.PlayerHold
         Player player;
 
 
-        PlayerHolder(View view) {
+        PlayerHolder(View view, boolean clickable) {
             super(view);
 
-
-            view.setOnLongClickListener(this);
+            if(clickable){
+                view.setOnLongClickListener(this);
+            }
 
             root = view;
             kills = view.findViewById(R.id.player_kills);
@@ -127,8 +139,6 @@ public class PlayerAdapter extends RecyclerView.Adapter<PlayerAdapter.PlayerHold
             mListener.onPlayerClicked(player);
             return true;
         }
-
-
     }
 
     public interface PlayerClicked {
