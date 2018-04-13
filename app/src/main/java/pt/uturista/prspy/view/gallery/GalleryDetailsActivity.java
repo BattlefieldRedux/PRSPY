@@ -23,6 +23,8 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import pt.uturista.prspy.R;
 import pt.uturista.prspy.compact.CompactGallery;
@@ -69,6 +71,26 @@ public class GalleryDetailsActivity extends BaseActivity implements CompactGalle
         super.onRestoreInstanceState(savedInstanceState);
 
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        super.onCreateOptionsMenu(menu);
+        getMenuInflater().inflate( R.menu.gallery_details_menu, menu);
+
+        // We want the menu to be displayed so we return true
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        switch(item.getItemId()){
+            case R.id.open_layer_selector:
+                mSelectorDrawer.openDrawer(Gravity.RIGHT);
+                return true;
+        }
+
+        return false;
     }
 
     @Override
