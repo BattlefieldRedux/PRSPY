@@ -50,6 +50,14 @@
         <activity
             android:name=".view.news.NewsActivity"
             android:label="@string/nav_news" />
+        <activity
+            android:name=".view.news.NewsDetailsActivity"
+            android:parentActivityName=".view.news.NewsActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".view.news.NewsActivity" />
+        </activity>
+
         <!-- Settings -->
         <activity
             android:name=".view.settings.SettingsActivity"
