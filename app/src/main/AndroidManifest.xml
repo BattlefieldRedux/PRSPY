@@ -46,6 +46,10 @@
                 android:value=".view.gallery.GalleryActivity" />
         </activity>
 
+        <!-- News -->
+        <activity
+            android:name=".view.news.NewsActivity"
+            android:label="@string/nav_news" />
         <!-- Settings -->
         <activity
             android:name=".view.settings.SettingsActivity"

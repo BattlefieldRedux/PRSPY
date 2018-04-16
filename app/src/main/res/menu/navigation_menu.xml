@@ -17,11 +17,12 @@
             android:checkable="true"
             android:title="@string/nav_gallery"
             android:icon="@drawable/ic_art_track_white_48dp"/>
-        <!--     <item
-                 android:id="@+id/nav_events"
-                 android:checkable="true"
-                 android:title="@string/nav_events"
-                 android:icon="@drawable/ic_event_white_48dp"/> -->
+
+        <item
+             android:id="@+id/nav_news"
+             android:checkable="true"
+             android:title="@string/nav_news"
+             android:icon="@drawable/ic_layers_black_24dp"/>
     </group>
     <group>
         <item

@@ -40,6 +40,7 @@ import java.lang.annotation.RetentionPolicy;
 import pt.uturista.prspy.R;
 import pt.uturista.prspy.view.friends.FriendsActivity;
 import pt.uturista.prspy.view.gallery.GalleryActivity;
+import pt.uturista.prspy.view.news.NewsActivity;
 import pt.uturista.prspy.view.servers.ServerBrowserActivity;
 import pt.uturista.prspy.view.settings.SettingsActivity;
 
@@ -58,7 +59,9 @@ public abstract class BaseNavigationActivity extends BaseActivity implements Nav
     protected BaseNavigationActivity(boolean requiresInternet) {
         super(requiresInternet);
     }
-
+    protected BaseNavigationActivity(boolean requiresInternet, @LayoutRes int view, @IdRes int rootView) {
+        super(requiresInternet, view , rootView);
+    }
 
     protected abstract @IdRes
     int getDrawerId();
@@ -200,9 +203,9 @@ public abstract class BaseNavigationActivity extends BaseActivity implements Nav
                         intent = new Intent(BaseNavigationActivity.this, GalleryActivity.class);
                         break;
 
-                 /*   case R.id.nav_events:
-                        intent = new Intent(mContext, EventsActivity.class);
-                        break;*/
+                   case R.id.nav_news:
+                        intent = new Intent(BaseNavigationActivity.this, NewsActivity.class);
+                        break;
 
                     case R.id.nav_settings:
                      intent = new Intent(BaseNavigationActivity.this, SettingsActivity.class);
