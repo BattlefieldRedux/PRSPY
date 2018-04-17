@@ -18,36 +18,15 @@ package pt.uturista.prspy.view.news;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
-import android.text.Editable;
-import android.text.Spanned;
-import android.text.method.LinkMovementMethod;
-import android.text.style.BulletSpan;
-import android.util.Log;
 import android.webkit.WebView;
-import android.widget.TextView;
-
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.DataSource;
-import com.bumptech.glide.load.engine.GlideException;
-import com.bumptech.glide.request.RequestListener;
-import com.bumptech.glide.request.target.Target;
-import com.pixplicity.htmlcompat.HtmlCompat;
-
-import org.xml.sax.Attributes;
-import org.xml.sax.XMLReader;
-
-import java.util.HashMap;
-import java.util.Map;
 
 import pt.uturista.prspy.R;
 import pt.uturista.prspy.view.BaseActivity;
 
-public class NewsDetailsActivity extends BaseActivity{
+public class NewsDetailsActivity extends BaseActivity {
     private static final String TAG = "NewsDetailsActivity";
     private static final String ARGS_CONTENT = "ARGS_CONTENT";
     private static final String ARGS_TYPE = "ARGS_TYPE";
@@ -72,7 +51,7 @@ public class NewsDetailsActivity extends BaseActivity{
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
-            actionBar.setTitle( getIntent().getStringExtra(ARGS_TYPE));
+            actionBar.setTitle(getIntent().getStringExtra(ARGS_TYPE));
         }
 
         webview = findViewById(R.id.webview);
