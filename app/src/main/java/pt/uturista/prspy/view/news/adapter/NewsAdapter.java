@@ -65,15 +65,10 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.Holder> {
                 holder.Type.setBackgroundColor(Color.parseColor("#f46036"));
                 break;
 
-            case News.BLOG:
-                holder.Type.setBackgroundColor(Color.parseColor("#3399ff"));
-                break;
-
-            case News.HIGHTLIGHTS:
-                holder.Type.setBackgroundColor(Color.parseColor("#3399ff"));
-                break;
-
             default:
+            case News.CHANGELOG:
+            case News.BLOG:
+            case News.HIGHLIGHTS:
             case News.OFFICIAL:
                 holder.Type.setBackgroundColor(Color.parseColor("#3399ff"));
                 break;

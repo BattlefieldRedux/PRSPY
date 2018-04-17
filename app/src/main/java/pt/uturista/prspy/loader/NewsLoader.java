@@ -51,9 +51,10 @@ public class NewsLoader extends AsyncTaskLoader<News[]> {
 
     private static final URL NEWS_FEED;
     private static final URL TOURNAMENT_FEED;
-    private static final URL DEV_BLOGS_FEED;
-    private static final URL HIGHTLIGHTS_FEED;
+    private static final URL DEV_BLOG_FEED;
+    private static final URL HIGHLIGHTS_FEED;
     private static final URL EVENTS_FEED;
+    private static final URL CHANGELOG_FEED;
     private static News[] mData;
 
     public NewsLoader(@NonNull Context context) {
@@ -68,9 +69,10 @@ public class NewsLoader extends AsyncTaskLoader<News[]> {
 
         taskNews.add(new GetNews(NEWS_FEED, News.OFFICIAL));
         taskNews.add(new GetNews(TOURNAMENT_FEED, News.TOURNAMENT));
-        taskNews.add(new GetNews(DEV_BLOGS_FEED, News.BLOG));
-        taskNews.add(new GetNews(HIGHTLIGHTS_FEED, News.HIGHTLIGHTS));
+        taskNews.add(new GetNews(DEV_BLOG_FEED, News.BLOG));
+        taskNews.add(new GetNews(HIGHLIGHTS_FEED, News.HIGHLIGHTS));
         taskNews.add(new GetNews(EVENTS_FEED, News.EVENT));
+        taskNews.add(new GetNews(CHANGELOG_FEED, News.CHANGELOG));
 
 
         try {
@@ -126,9 +128,10 @@ public class NewsLoader extends AsyncTaskLoader<News[]> {
         try {
             NEWS_FEED = new URL("https://www.realitymod.com/forum/external.php?forumids=380");
             TOURNAMENT_FEED = new URL("https://www.realitymod.com/forum/external.php?forumids=110");
-            DEV_BLOGS_FEED = new URL("https://www.realitymod.com/forum/external.php?forumids=389");
-            HIGHTLIGHTS_FEED = new URL("https://www.realitymod.com/forum/external.php?forumids=196");
+            DEV_BLOG_FEED = new URL("https://www.realitymod.com/forum/external.php?forumids=389");
+            HIGHLIGHTS_FEED = new URL("https://www.realitymod.com/forum/external.php?forumids=196");
             EVENTS_FEED = new URL("https://www.realitymod.com/forum/external.php?forumids=376");
+            CHANGELOG_FEED = new URL("https://www.realitymod.com/forum/external.php?forumids=604");
         } catch (MalformedURLException e) {
             throw new AssertionError("Should really not happen");
         }

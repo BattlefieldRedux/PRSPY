@@ -17,14 +17,10 @@
 package pt.uturista.prspy.model;
 
 import android.content.Context;
-import android.graphics.Color;
-import android.net.Uri;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.support.annotation.IntDef;
-import android.support.annotation.StringDef;
 
-import com.rometools.rome.feed.synd.SyndContent;
 import com.rometools.rome.feed.synd.SyndEntry;
 
 import java.lang.annotation.Retention;
@@ -38,7 +34,8 @@ public class News implements Parcelable {
     public final static int TOURNAMENT = 2;
     public final static int OFFICIAL = 3;
     public static final int BLOG = 4;
-    public static final int HIGHTLIGHTS = 5;
+    public static final int HIGHLIGHTS = 5;
+    public static final int CHANGELOG = 6;
 
 
     private final String mTitle;
@@ -127,8 +124,11 @@ public class News implements Parcelable {
             case News.BLOG:
                 return context.getString(R.string.news_type_blog);
 
-            case News.HIGHTLIGHTS:
+            case News.HIGHLIGHTS:
                 return context.getString(R.string.news_type_highlights);
+
+            case News.CHANGELOG:
+                return context.getString(R.string.news_type_changelog);
 
             default:
             case News.OFFICIAL:
