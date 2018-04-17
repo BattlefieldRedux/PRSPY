@@ -66,14 +66,6 @@ public class GalleryDetailsActivity extends BaseActivity implements CompactGalle
     }
 
     @Override
-    protected void onRestoreInstanceState(Bundle savedInstanceState) {
-        Log.d(TAG, "onCreate");
-        super.onRestoreInstanceState(savedInstanceState);
-
-
-    }
-
-    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
         getMenuInflater().inflate( R.menu.gallery_details_menu, menu);
@@ -96,6 +88,8 @@ public class GalleryDetailsActivity extends BaseActivity implements CompactGalle
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.d(TAG, "onCreate");
+
 
         // Obtain Map
         String mapName = getIntent().getStringExtra(ARGS_MAP);
