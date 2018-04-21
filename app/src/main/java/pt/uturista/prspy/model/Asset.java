@@ -82,6 +82,10 @@ public class Asset implements Parcelable {
         return mName;
     }
 
+    public String getIcon() {
+        return mIcon;
+    }
+
     /* =================================
     *            Serialization
     * ================================= */
