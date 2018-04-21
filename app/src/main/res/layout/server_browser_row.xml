@@ -1,4 +1,6 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:paddingBottom="20dp"
@@ -8,86 +10,95 @@
     <TextView
         android:id="@+id/serverFriendIndicator"
         android:layout_width="10dp"
-        android:layout_height="match_parent"
-        android:background="@color/blue"
-        android:layout_alignParentLeft="true"
+        android:layout_height="0dp"
         android:layout_alignTop="@+id/serverName"
-        android:layout_alignBottom="@+id/secondLine" />
+        android:layout_marginBottom="2dp"
+        android:layout_marginTop="2dp"
+        android:background="@color/blue"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <ImageView
         android:id="@+id/serverFlag"
         android:layout_width="20dp"
         android:layout_height="20dp"
-        android:layout_alignTop="@+id/serverName"
-        android:layout_alignBottom="@+id/secondLine"
-        android:layout_toRightOf="@+id/serverFriendIndicator"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="5dp"
         android:layout_centerVertical="true"
-        android:layout_marginRight="16dp"
-        android:contentDescription="Country's flag" />
+        android:layout_marginBottom="2dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="2dp"
+        android:layout_toRightOf="@+id/serverFriendIndicator"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/serverFriendIndicator"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_toEndOf="@+id/serverFriendIndicator" />
 
 
     <!-- First Line -->
     <TextView
-            android:id="@+id/serverName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:singleLine="true"
-            android:text="Server\'s Name"
-            android:textColor="@android:color/white"
-            android:textSize="16dp"
-            android:layout_alignParentTop="true"
-            android:layout_toRightOf="@+id/serverFlag"
-            android:layout_alignParentRight="true"/>
+        android:id="@+id/serverName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="2dp"
+        android:singleLine="true"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/serverFlag"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Server\'s Name" />
 
-    <!-- Second Line -->
-    <RelativeLayout
+
+    <ImageView
+        android:id="@+id/server_locked"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/serverName"
-        android:layout_toRightOf="@+id/serverFlag"
-        android:id="@+id/secondLine"
-        android:layout_alignParentRight="true">
-
-        <ImageView
-            android:id="@+id/server_locked"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:src="@drawable/ic_lock_outline_white_18dp"
-            android:padding="2dp"
-            android:layout_alignParentTop="true"
-            android:layout_alignBottom="@+id/serverPlayerCount" />
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:padding="2dp"
+        android:src="@drawable/ic_lock_outline_white_18dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/serverFlag"
+        app:layout_constraintTop_toBottomOf="@+id/serverName" />
 
 
-        <TextView
-            android:id="@+id/serverPlayerCount"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/server_locked"
-            android:minEms="5"
-            android:text="70/100 (5)"
-            android:textColor="@android:color/white"
-            android:textSize="14dp" />
+    <TextView
+        android:id="@+id/serverPlayerCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="2dp"
+        android:layout_marginStart="2dp"
+        android:minEms="5"
+        android:textColor="@android:color/white"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/server_locked"
+        app:layout_constraintTop_toBottomOf="@+id/serverName"
+        tools:text="70/100 (5)" />
 
-        <TextView
-            android:id="@+id/serverMap"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_toEndOf="@+id/serverPlayerCount"
-            android:layout_toRightOf="@+id/serverPlayerCount"
-            android:singleLine="true"
-            android:text="Mutrah City"
-            android:textColor="@android:color/white"
-            android:textSize="14dp" />
-    </RelativeLayout>
+    <TextView
+        android:id="@+id/serverMap"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="2dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="4dp"
+        android:singleLine="true"
+        android:textColor="@android:color/white"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/serverPlayerCount"
+        app:layout_constraintTop_toBottomOf="@+id/serverName"
+        tools:text="Mutrah City" />
 
 
-
-
-</RelativeLayout>
+</android.support.constraint.ConstraintLayout>
