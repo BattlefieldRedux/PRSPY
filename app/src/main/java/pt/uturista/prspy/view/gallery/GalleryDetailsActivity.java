@@ -78,7 +78,7 @@ public class GalleryDetailsActivity extends BaseActivity implements CompactGalle
     public boolean onOptionsItemSelected(MenuItem item){
         switch(item.getItemId()){
             case R.id.open_layer_selector:
-                mSelectorDrawer.openDrawer(Gravity.RIGHT);
+                mSelectorDrawer.openDrawer(Gravity.END);
                 return true;
         }
 
@@ -173,7 +173,7 @@ public class GalleryDetailsActivity extends BaseActivity implements CompactGalle
         mLayer = gameLayer;
 
         mCompactGallery.getLayout(getIntent().getStringExtra(ARGS_MAP), mMode, mLayer);
-        mSelectorDrawer.closeDrawer(Gravity.RIGHT);
+        mSelectorDrawer.closeDrawer(Gravity.END);
 
     }
 }
